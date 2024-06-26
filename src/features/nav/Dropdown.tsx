@@ -1,5 +1,4 @@
 import React, { PropsWithChildren } from "react";
-import PropTypes from "prop-types";
 
 const Dropdown = (props: PropsWithChildren) => {
   return (
@@ -31,7 +30,5 @@ const Dropdown = (props: PropsWithChildren) => {
     </div>
   );
 };
-
-Dropdown.propTypes = {};
 
 export default Dropdown;
