@@ -15,6 +15,9 @@ const Search = () => {
   const navigate = useNavigate();
   const handleSearch = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
     e.preventDefault();
+    doSearch();
+  };
+  const doSearch = () => {
     dispatch(setIsSearching(false));
     navigate("/search");
   };
@@ -48,7 +51,10 @@ const Search = () => {
               type="text"
               placeholder="Search"
               className="input input-bordered join-item w-20 md:w-auto"
-              onChange={(e) => dispatch(setSearchQueryString(e.target.value))}
+              onChange={({ target: { value } }) =>
+                dispatch(setSearchQueryString(value))
+              }
+              onKeyDown={(e) => e.key === "Enter" && doSearch()}
             />
             {queryString === "" && (
               <button
